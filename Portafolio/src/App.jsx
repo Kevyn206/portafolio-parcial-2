@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
+import Caja from './components/atoms/caja'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+import { Provider } from "./components/ui/provider"
+
+function App({ Component, pageProps}) {
 
   return (
-    <>
-      
-    </>
+    <Provider>
+      <Caja/>
+    </Provider>
   )
 }
 
-export default App
+export default App;
