@@ -2,11 +2,10 @@ import { Box, Image } from "@chakra-ui/react";
 // Se pueden subir niveles en los archivos con ../../
 import FotoPerfil from "../../assets/ProfilePhoto.webp"
 
-function ProfilePhoto() {
+export default function ProfilePhoto() {
     
     return (
-        <Box
-        boxSize={{base: "130px", md: "160px"}}
+        <Box // Se pone dentro de una Box para agregarle más propiedades (sombras, borde, etc)
         borderRadius={"full"}
         overflow={"hidden"}
         borderWidth={"2px"}
@@ -17,13 +16,8 @@ function ProfilePhoto() {
             <Image
             src={FotoPerfil}
             alt="Foto de perfil"
-            width={"100%"}
-            height={"100%"} // <= width y height ajustan la foto para que quede centrada
-            objectFit={"cover"}
+            boxSize={{base: "130px", md: "160px"}}
             />
-        
         </Box>
     )
 }
-
-export default ProfilePhoto;

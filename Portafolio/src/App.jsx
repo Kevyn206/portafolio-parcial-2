@@ -8,6 +8,8 @@ import TecnoFit from "./assets/TecnoFit.png";
 import Portfolio from "./assets/PortafolioInteractivo.png";
 import LogoChakra from "./assets/LogoChakra.png";
 import ProfilePhoto from "./components/atoms/ProfilePhoto";
+import Header from "./components/molecules/Header";
+import AboutMeText from "./components/atoms/AboutMeText";
 
 const proyectos = [
   {
@@ -45,38 +47,28 @@ const añoActual = new Date().getFullYear();
 
 function App() {
 
-  const [mostrarFormulario, setMostrarFormulario] = useState(false)
+  // Abrir y cerrar el formulario
+  const [mostrandoFormulario, setMostrandoFormulario] = useState(false)
 
   return (
     /* Provider es necesario para que funcione Chakra */
     <Provider>
-      {/* HEADER */}
-      <Box 
-      bg={"blue.600"} 
-      p={"5"} 
-      pt={"10"} 
-      color={"white"}
-      borderBottomWidth={"2px"} 
-      borderColor={"blue.border"}
-      >
-        <Heading as={"h1"} size={"4xl"}>Portafolio Interactivo</Heading>
-      </Box>
 
-      {/* Container mantiene toda la página en un solo lugar */}
+      {/* HEADER */}
+      <Header/>
+
+      {/* Container centra toda la página */}
       <Container maxW={{base: "sm", md: "xl", lg: "3xl", xl: "7xl"}} mx={"auto"} p={"5"} color="gray.600">
         {/* VStack agrupa las secciones de forma vertical. HStack de forma horizontal*/}
         <VStack align={"stretch"} gap={"6"}>
 
           {/* SOBRE MÍ */}
-          <Flex direction={"column"} align={"center"}>
-            
+          {/* Flex ayuda a alinear el contenido para la presentación */}
+          <Flex direction={"column"} align={"center"} textAlign={"center"}>
+
             <ProfilePhoto/>
+            <AboutMeText/>
             
-            <Heading as={"h2"} size={"3xl"}>Hola, soy Kevyn Vizcaya</Heading>
-            <Text fontSize={"lg"} mt={"2"} textAlign={"center"}>
-              Soy Desarrollador de Software, y me especializo en el despliegue de aplicaciones Web y Móviles (Android).
-            </Text> 
-            {/* mt: márgen superior */}
           </Flex>
 
           <Separator/>
@@ -138,7 +130,7 @@ function App() {
                 borderWidth={"1px"}
                 borderColor={"gray.400"}
                 overflow={"hidden"}   // <= Redondea todo lo que se pegue al borde de la tarjeta 
-                bg={"aliceblue"}
+                bg={"aliceblue"}    // <= El mismo color del fondo
                 transition={"all 0.2s ease-in-out"}
                 _hover={{transform: "scale(1.01)", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)"}}
                 >
@@ -152,7 +144,7 @@ function App() {
                   />
 
                   {/* Contenido */}
-                  <Box p={"4"} borderTopWidth={"1px"} borderColor={"gray.300"}>
+                  <Box p={"4"} borderTopWidth={"1px"} borderTopColor={"gray.300"}>
 
                     <HStack justify={"space-between"} align={"center"} mb={"2"}>
                       <Heading size={"md"}>{proyecto.titulo}</Heading>
@@ -226,24 +218,27 @@ function App() {
 
               {/* BOTÓN PARA ABRIR FORMULARIO */}
               <Button
-              onClick={() => setMostrarFormulario(!mostrarFormulario)}
+              // Al clicar, cambiará el estado a verdadero (!false, que NO sea falso)
+              onClick={() => setMostrandoFormulario(!mostrandoFormulario)}
               colorPalette={"blue"}
               variant={"solid"}
               size={"md"}
               mt="2"
               px={"2"}
               >
-                {mostrarFormulario ? "Ocultar Formulario ▲" : "Abrir Formulario ▼"}
+                {/* Condicionador ternario para cambiar el contenido del botón */}
+                {mostrandoFormulario ? "Ocultar Formulario ▲" : "Abrir Formulario ▼"}
               </Button>
             </VStack>
 
             {/* CAJA DEL FORMULARIO */}
             <Box
-            maxH={mostrarFormulario ? "700px" : "0px"}
-            opacity={mostrarFormulario ? 1 : 0}
+            maxH={mostrandoFormulario ? "700px" : "0px"}  // Si es verdadero, la altura máxima será de 700px (se mostrará)
+            opacity={mostrandoFormulario ? 1 : 0}   // Si es verdadero, opacidad al mmáxmo
             overflow={"hidden"}
             mb={"7"}
-            transition={"all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"} // Deslizamiento suave
+            transition={"all 0.4s"} // Selecciona todos los componentes que cambian (por el estado mostandoFormulario)
+            transitionTimingFunction="ease-in-out" // Deslizamiento suave
             >
               <Box
               p={{base: "4", md: "6"}}
@@ -307,6 +302,7 @@ function App() {
       borderTopWidth={"2px"} 
       borderColor={"blue.600"}
       >
+        {/* Container y Flex para ajustar el contenido a responsivo */}
         <Container maxW={{ base: "sm", md: "xl", lg: "3xl", xl: "7xl" }} mx="auto">
           <Flex 
           direction={{base: "column", md: "row"}} 
