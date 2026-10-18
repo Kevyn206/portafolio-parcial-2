@@ -1,5 +1,21 @@
 // import './App.css'
-import { Badge, Box, Button, Center, Container, Field, Flex, Heading, HStack, Image, Input, Separator, SimpleGrid, Text, Textarea, VStack, } from "@chakra-ui/react";
+import { 
+  Box, 
+  Button, 
+  Container, 
+  Field, 
+  Flex, 
+  Heading, 
+  HStack, 
+  Image, 
+  Input, 
+  Separator, 
+  SimpleGrid, 
+  Text, 
+  Textarea, 
+  VStack
+} from "@chakra-ui/react";
+
 import { Provider } from "./components/ui/provider";
 import { useState } from "react";
 import PETs from "./assets/PETs.png";
@@ -9,7 +25,10 @@ import Portfolio from "./assets/PortafolioInteractivo.png";
 import LogoChakra from "./assets/LogoChakra.png";
 import ProfilePhoto from "./components/atoms/ProfilePhoto";
 import Header from "./components/molecules/Header";
-import AboutMeText from "./components/atoms/AboutMeText";
+import AboutMeText from "./components/molecules/AboutMeText";
+import Sectiontitle from "./components/atoms/SectionTitle";
+import SectionBox from "./components/molecules/SectionBox";
+import ProjectBox from "./components/organisms/ProjectBox";
 
 const proyectos = [
   {
@@ -22,6 +41,7 @@ const proyectos = [
   },
   {
     imagen: GAMEZONE,
+    id: 2,
     titulo: "GAMEZONE",
     descripcion: "Inicio de sesión con diseño responsivo para la empresa GAMEZONE",
     repo: "https://github.com/sebahenry17-arch/Henry-Vizcaya-Caso-3",
@@ -29,6 +49,7 @@ const proyectos = [
   },
   {
     imagen: TecnoFit,
+    id: 3,
     titulo: "TecnoFit",
     descripcion: "Registro con validación en JS para ingresar datos personales y componentes deportivos",
     repo: "https://github.com/sebahenry17-arch/TecnoFit-Store",
@@ -36,6 +57,7 @@ const proyectos = [
   },
   {
     imagen: Portfolio,
+    id: 4,
     titulo: "Portafolio Interactivo",
     descripcion: "Información profesional y académica sobre mí, proyectos y formulario de contacto usando Chakra UI",
     repo: "https://github.com/Kevyn206/portafolio-parcial-2",
@@ -68,112 +90,85 @@ function App() {
 
             <ProfilePhoto/>
             <AboutMeText/>
-            
+
           </Flex>
 
           <Separator/>
 
           {/* EXPERIENCIA LABORAL */}
           <Box as={"section"}>
-            <Heading size={"xl"} mb={"4"}>Experiencia Laboral (FICTICIA)</Heading>
 
-            <Box p={"4"} borderWidth={"1px"} borderRadius={"md"} mx={"2"} my={"4"}>
-              <Heading size={"md"}>Desarrollador Junior Mobile - Empresa X</Heading>
-              <Text fontSize={"sm"} color={"gray.500"}>Diciembre 2027 - Enero 2029</Text>
-              <Text fontSize={"sm"} my={"2"}>Diseño de pantallas nativas en Jetpack Compose</Text>
-            </Box>
+            <Sectiontitle 
+            text="Experiencia Laboral (FICTICIA)"
+            />
 
-            <Box p={"4"} borderWidth={"1px"} borderRadius={"md"} mx={"2"} my={"4"}>
-              <Heading size={"md"}>Desarrollador Junior - Freelance</Heading>
-              <Text fontSize={"sm"} color={"gray.500"}>Marzo 2029 - Presente</Text>
-              <Text fontSize={"sm"} my={"2"}>Desarrollo de aplicaciones Web y Android a pequeñas y medianas empresas</Text>
-            </Box>
+            <SectionBox 
+            title="Desarrollador Junior Mobile - Empresa X"
+            subtitle="Diciembre 2027 - Enero 2029"
+            text="Diseño de pantallas nativas en Jetpack Compose"
+            />
+
+            <SectionBox 
+            title="Desarrollador Junior - Freelance"
+            subtitle="Marzo 2029 - Presente"
+            text="Desarrollo de aplicaciones Web y Android a pequeñas y medianas empresas"
+            />
+
           </Box>
 
           <Separator/>
 
           {/* ESTUDIOS */}
           <Box as={"section"}>
-            <Heading size={"xl"} mb={"4"}>Formación Académica</Heading>
 
-            <Box p={"4"} borderWidth={"1px"} borderRadius={"md"} mx={"2"} my={"4"}>
-              <Heading size={"md"}>Colegio Bicentenario Técnico Profesional “República Argentina”</Heading>
-              <Text fontSize={"sm"} color={"gray.500"}>Santiago, Región Metropolitana</Text>
-              <Text fontSize={"sm"} my={"2"} fontWeight={"bold"}>1ro Medio</Text>
-            </Box>
+            <Sectiontitle 
+            text="Formación Académica"
+            />
 
-            <Box p={"4"} borderWidth={"1px"} borderRadius={"md"} mx={"2"} my={"4"}>
-              <Heading size={"md"}>Liceo “Alberto Hurtado Cruchaga”</Heading>
-              <Text fontSize={"sm"} color={"gray.500"}>Padre Hurtado, Región Metropolitana</Text>
-              <Text fontSize={"sm"} my={"2"} fontWeight={"bold"}>De 2do a 4to Medio</Text>
-              <Text fontSize={"sm"} fontWeight={"bold"}>Título obtenido: Licencia de Enseñanza Media. Diciembre 2024</Text>
-            </Box>
+            <SectionBox 
+            title="Colegio Bicentenario Técnico Profesional “República Argentina”"
+            subtitle="Santiago, Región Metropolitana"
+            boldText1="1ro Medio"
+            />
 
-            <Box p={"4"} borderWidth={"1px"} borderRadius={"md"} mx={"2"} my={"4"}>
-              <Heading size={"md"}>Instituto Profesional "Duoc UC"</Heading>
-              <Text fontSize={"sm"} color={"gray.500"}>Maipú, Región Metropolitana</Text>
-              <Text fontSize={"sm"} my={"2"} fontWeight={"bold"}>Título obtenido: Analista Programador. Agosto 2027</Text>
-            </Box>
+            <SectionBox 
+            title="Liceo “Alberto Hurtado Cruchaga”"
+            subtitle="Padre Hurtado, Región Metropolitana"
+            boldText1="De 2do a 4to Medio"
+            boldText2="Título obtenido: Licencia de Enseñanza Media. Diciembre 2024"
+            />
+
+            <SectionBox 
+            title="Instituto Profesional “Duoc UC”"
+            subtitle="Maipú, Región Metropolitana"
+            boldText2="Título obtenido: Analista Programador. Agosto 2027"
+            />
+
           </Box>
 
           <Separator/>
 
           {/* PROYECTOS */}
           <Box as={"section"}>
-            <Heading size={"xl"} mb={"4"}>Desarrollos y Proyectos</Heading>
+            <Sectiontitle 
+            text="Desarrollos y Proyectos"
+            />
 
             <SimpleGrid columns={{base: 1, md: 2}} gap={"6"} p={"2"}>
               {proyectos.map((proyecto) => (
-                <Box 
-                key={proyecto.id}
-                borderRadius={"lg"}
-                borderWidth={"1px"}
-                borderColor={"gray.400"}
-                overflow={"hidden"}   // <= Redondea todo lo que se pegue al borde de la tarjeta 
-                bg={"aliceblue"}    // <= El mismo color del fondo
-                transition={"all 0.2s ease-in-out"}
-                _hover={{transform: "scale(1.01)", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)"}}
-                >
-                  {/* Imagen */}
-                  <Image
-                  src={proyecto.imagen}
-                  alt={`Captura de ${proyecto.titulo}`}
-                  width={"100%"}
-                  height={"180px"}
-                  objectFit={"cover"}
-                  />
-
-                  {/* Contenido */}
-                  <Box p={"4"} borderTopWidth={"1px"} borderTopColor={"gray.300"}>
-
-                    <HStack justify={"space-between"} align={"center"} mb={"2"}>
-                      <Heading size={"md"}>{proyecto.titulo}</Heading>
-                      <Badge 
-                      colorPalette={"blue"} 
-                      variant={"subtle"} 
-                      borderRadius={"full"} 
-                      px={"2.5"} 
-                      py={"0.5"}
-                      >
-                        {proyecto.tecnologia}
-                      </Badge>
-                    </HStack>
-
-                    <Text fontSize={"sm"} color={"gray.600"} mb={"4"}>{proyecto.descripcion}</Text>
-
-                    <Button
-                    as={"a"}
-                    href={proyecto.repo}
-                    target={"_blank"}     // <= Crear otra página y redirigir al sitio
-                    rel="noopener noreferrer"   // <= Seguridad para que no modifiquen la página desde el sitio redirigido
-                    colorPalette={"blue"}
-                    size={"sm"}
-                    width={"100%"}
-                    >
-                      Ver Repositorio en GitHub
-                    </Button>
-                  </Box>
-                </Box>
+                // Cajita de cada proyecto
+                <ProjectBox
+                key={proyecto.id} // En la lista se agregan las IDs de cada proyecto para recorrer la lista del componente padre con .map()
+                bg="aliceblue"
+                imageSrc={proyecto.imagen}
+                imageAlt={`Captura de ${proyecto.titulo}`}
+                projectTitle={proyecto.titulo}
+                projectTextPill={proyecto.tecnologia}
+                projectDescription={proyecto.descripcion}
+                buttonText="Ver Repositorio en GitHub"
+                buttonColor={"blue"}
+                hrefRepository={proyecto.repo}
+                />
               ))}
             </SimpleGrid>
 

@@ -1,6 +1,7 @@
 import { Heading, Text } from "@chakra-ui/react";
 
 export default function AboutMeText() {
+    
     return (
         <>
             <Heading 
