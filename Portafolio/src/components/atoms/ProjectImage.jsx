@@ -6,6 +6,7 @@ export default function ProjectImage({
     width = "100%",
     height = "180px"
 }) {
+    
     return (
         <Image
             src={src}

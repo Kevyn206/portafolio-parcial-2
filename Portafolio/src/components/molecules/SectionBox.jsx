@@ -1,14 +1,17 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 
 export default function SectionBox({
+    bg = "gray.900",
     title,
     subtitle,
     text,
     boldText1,
     boldText2,
 }) {
+    
     return(
         <Box 
+        bg={bg}
         p={"4"} 
         borderWidth={"1px"} 
         borderRadius={"md"}

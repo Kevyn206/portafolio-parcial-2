@@ -2,22 +2,17 @@
 import { 
   Box, 
   Button, 
-  Container, 
-  Field, 
+  Container,
   Flex, 
   Heading, 
   HStack, 
-  Image, 
-  Input, 
   Separator, 
   SimpleGrid, 
   Text, 
-  Textarea, 
   VStack
 } from "@chakra-ui/react";
 
 import { Provider } from "./components/ui/provider";
-import { useState } from "react";
 import PETs from "./assets/PETs.png";
 import GAMEZONE from "./assets/GAMEZONE.png";
 import TecnoFit from "./assets/TecnoFit.png";
@@ -26,9 +21,11 @@ import LogoChakra from "./assets/LogoChakra.png";
 import ProfilePhoto from "./components/atoms/ProfilePhoto";
 import Header from "./components/molecules/Header";
 import AboutMeText from "./components/molecules/AboutMeText";
-import Sectiontitle from "./components/atoms/SectionTitle";
+import SectionTitle from "./components/atoms/SectionTitle";
 import SectionBox from "./components/molecules/SectionBox";
 import ProjectBox from "./components/organisms/ProjectBox";
+import FooterBox from "./components/molecules/FooterBox";
+import ContactForm from "./components/organisms/ContactForm";
 
 const proyectos = [
   {
@@ -69,18 +66,15 @@ const añoActual = new Date().getFullYear();
 
 function App() {
 
-  // Abrir y cerrar el formulario
-  const [mostrandoFormulario, setMostrandoFormulario] = useState(false)
-
   return (
     /* Provider es necesario para que funcione Chakra */
     <Provider>
 
       {/* HEADER */}
-      <Header/>
+      <Header text={"Portafolio Interactivo"}/>
 
       {/* Container centra toda la página */}
-      <Container maxW={{base: "sm", md: "xl", lg: "3xl", xl: "7xl"}} mx={"auto"} p={"5"} color="gray.600">
+      <Container maxW={{base: "sm", md: "xl", lg: "3xl", xl: "7xl"}} mx={"auto"} p={"5"} color="gray.200">
         {/* VStack agrupa las secciones de forma vertical. HStack de forma horizontal*/}
         <VStack align={"stretch"} gap={"6"}>
 
@@ -98,7 +92,7 @@ function App() {
           {/* EXPERIENCIA LABORAL */}
           <Box as={"section"}>
 
-            <Sectiontitle 
+            <SectionTitle 
             text="Experiencia Laboral (FICTICIA)"
             />
 
@@ -121,7 +115,7 @@ function App() {
           {/* ESTUDIOS */}
           <Box as={"section"}>
 
-            <Sectiontitle 
+            <SectionTitle 
             text="Formación Académica"
             />
 
@@ -150,7 +144,7 @@ function App() {
 
           {/* PROYECTOS */}
           <Box as={"section"}>
-            <Sectiontitle 
+            <SectionTitle 
             text="Desarrollos y Proyectos"
             />
 
@@ -159,7 +153,6 @@ function App() {
                 // Cajita de cada proyecto
                 <ProjectBox
                 key={proyecto.id} // En la lista se agregan las IDs de cada proyecto para recorrer la lista del componente padre con .map()
-                bg="aliceblue"
                 imageSrc={proyecto.imagen}
                 imageAlt={`Captura de ${proyecto.titulo}`}
                 projectTitle={proyecto.titulo}
@@ -210,115 +203,24 @@ function App() {
                   GitHub
                 </Button>
               </HStack>
-
-              {/* BOTÓN PARA ABRIR FORMULARIO */}
-              <Button
-              // Al clicar, cambiará el estado a verdadero (!false, que NO sea falso)
-              onClick={() => setMostrandoFormulario(!mostrandoFormulario)}
-              colorPalette={"blue"}
-              variant={"solid"}
-              size={"md"}
-              mt="2"
-              px={"2"}
-              >
-                {/* Condicionador ternario para cambiar el contenido del botón */}
-                {mostrandoFormulario ? "Ocultar Formulario ▲" : "Abrir Formulario ▼"}
-              </Button>
             </VStack>
 
-            {/* CAJA DEL FORMULARIO */}
-            <Box
-            maxH={mostrandoFormulario ? "700px" : "0px"}  // Si es verdadero, la altura máxima será de 700px (se mostrará)
-            opacity={mostrandoFormulario ? 1 : 0}   // Si es verdadero, opacidad al mmáxmo
-            overflow={"hidden"}
-            mb={"7"}
-            transition={"all 0.4s"} // Selecciona todos los componentes que cambian (por el estado mostandoFormulario)
-            transitionTimingFunction="ease-in-out" // Deslizamiento suave
-            >
-              <Box
-              p={{base: "4", md: "6"}}
-              >
-                <VStack as={"form"} gap={"4"} onSubmit={(e) => {
-                  e.preventDefault;
-                  alert("¡Mensaje enviado con éxito!");
-                }}>
-                  {/* NOMBRE */}
-                  <Field.Root required>
-                    <Field.Label>
-                      Nombre Completo
-                      <Field.RequiredIndicator/>
-                    </Field.Label>
-                    <Input placeholder="Ej: Juanito Perez" variant={"flushed"}/>
-                    <Field.HelperText>Ingresa tu nombre o empresa</Field.HelperText>
-                  </Field.Root>
-
-                  {/* CORREO */}
-                  <Field.Root required>
-                    <Field.Label>
-                      Correo electrónico
-                      <Field.RequiredIndicator/>
-                    </Field.Label>
-                    <Input placeholder="Ej: juanito.perez@correo.com" variant={"flushed"}/>
-                  </Field.Root>
-
-                  {/* CAMPO MENSAJE */}
-                  <Field.Root required>
-                    <Field.Label>
-                      Mensaje
-                      <Field.RequiredIndicator/>
-                    </Field.Label>
-                    <Textarea 
-                    placeholder="Escribe tu consulta aquí..."
-                    rows={4}        // <= Muestra 4 filas vacías al mostrar por primera vez
-                    colorPalette={"gray"}
-                    variant={"outline"}
-                    />
-                  </Field.Root>
-
-                  {/* BOTÓN DE ENVIAR */}
-                  <Button type="submit" colorPalette={"blue"} width={"50%"}>
-                    Enviar Mensaje
-                  </Button>
-                </VStack>
-              </Box>
-            </Box>
+            {/* FORMULARIO CON BOTÓN Y ANIMACIÓN INCLUIDA */}
+            <ContactForm/>
 
           </Box>
 
         </VStack>
       </Container>
 
-      <Box
-      as={"footer"}
-      bg={"blue.800"} 
-      p="5"
-      pt={"8"} 
-      color="white" 
-      borderTopWidth={"2px"} 
-      borderColor={"blue.600"}
-      >
-        {/* Container y Flex para ajustar el contenido a responsivo */}
-        <Container maxW={{ base: "sm", md: "xl", lg: "3xl", xl: "7xl" }} mx="auto">
-          <Flex 
-          direction={{base: "column", md: "row"}} 
-          justify={"space-between"} 
-          align={"center"} 
-          textAlign={{base: "center", md: "left"}}
-          gap={"10"}
-          py={"5"}
-          >
-            <VStack>
-              <Text>© {añoActual} Kevyn Vizcaya. Todos los derechos reservados.</Text>
-              <Text>Contáctame: ke.vizcaya@duocuc.cl</Text>
-            </VStack>
-            
-            <VStack justify={"center"}>
-              <Text size={"md"} fontWeight={"bold"} letterSpacing={"wider"}>Hecho con:</Text>
-              <Image src={LogoChakra} height={"30px"} alt="Chakra UI"/>
-            </VStack>
-          </Flex>
-        </Container>
-      </Box>
+      <FooterBox
+      leftText1={`© ${añoActual} Kevyn Vizcaya. Todos los derechos reservados.`}
+      leftText2={"Contáctame: ke.vizcaya@duocuc.cl"}
+      rightText={"Hecho con:"}
+      image={LogoChakra}
+      alt={"Chakra UI"}
+      />
+
     </Provider>
   )
 }

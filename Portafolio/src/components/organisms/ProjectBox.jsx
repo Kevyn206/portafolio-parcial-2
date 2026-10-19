@@ -4,7 +4,7 @@ import ProjectText from "../molecules/ProjectText";
 
 
 export default function ProjectBox({
-    bg = "white",
+    bg = "gray.900",
     imageSrc,
     imageAlt = "",
     projectTitle,
@@ -19,11 +19,11 @@ export default function ProjectBox({
         <Box
         borderRadius={"xl"}
         borderWidth={"1px"}
-        borderColor={"gray.400"}
+        borderColor={"gray.700"}
         overflow={"hidden"}   // <= Redondea todo lo que se pegue al borde de la tarjeta 
         bg={bg}    // <= El mismo color del fondo
         transition={"all 0.2s ease-in-out"}
-        _hover={{transform: "scale(1.01)", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)"}}
+        _hover={{transform: "scale(1.01)"}}
         >
             <ProjectImage
             src={imageSrc}

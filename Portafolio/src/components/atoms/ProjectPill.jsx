@@ -3,6 +3,7 @@ import { Badge } from "@chakra-ui/react";
 export default function ProjectPill({
     text = "Badge"
 }) {
+    
     return (
         <Badge 
         colorPalette={"blue"} 
