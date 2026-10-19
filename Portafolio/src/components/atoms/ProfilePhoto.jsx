@@ -11,7 +11,7 @@ export default function ProfilePhoto() {
         borderWidth={"2px"}
         borderColor={"blue.500"}
         boxShadow={"md"}
-        mb={"4"}
+        my={"4"}
         >
             <Image
             src={FotoPerfil}

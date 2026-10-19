@@ -1,8 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react"
 
-export default function Header({
-    text
-}) {
+export default function HeaderBox() {
     
     return (
         <Box 
@@ -17,7 +15,7 @@ export default function Header({
             as={"h1"}
             size={"4xl"}
             >
-                {text}
+                Portafolio Interactivo
             </Heading>
         </Box>
     )

@@ -5,14 +5,13 @@ export default function ContactForm() {
 
     return (
         <Collapsible.Root unmountOnExit>
-            <VStack gap={"4"} width={"100%"}>
-                {/* asChild copiará las propiedades de VStack */}
+            <VStack my={"8"} gap={"4"} width={"100%"}>
+                {/* asChild llevará las funcionalidades y estilos a Button (componente hijo) */}
                 <Collapsible.Trigger asChild> 
                     {/* BOTÓN PARA ABRIR FORMULARIO */}
                     <Button 
                     colorPalette="blue" 
                     size="md" 
-                    mt={"7"}
                     px={"2"}
                     >
                         Abrir / Ocultar Formulario
