@@ -5,7 +5,7 @@ import SectionBox from "../molecules/SectionBox";
 export default function WorkExperience() {
     
     return (
-        <Box as={"section"}>
+        <Box as={"section"} data-testid={"work-experience"}>
             <SectionTitle 
             text="Experiencia Laboral (FICTICIA)"
             />

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, VStack, Image } from "@chakra-ui/react";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import FooterText from "./FooterText";
 import FooterImage from "./FooterImage";
 
@@ -12,6 +12,7 @@ export default function FooterBox({
     return (
         <Box
             as={"footer"}
+            data-testid={"site-footer"}
             bg={"blue.800"} 
             p="5"
             pt={"8"} 

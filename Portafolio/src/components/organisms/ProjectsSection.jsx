@@ -1,4 +1,4 @@
-import { Box, Button, Flex, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Box, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import SectionTitle from "../atoms/SectionTitle";
 import ProjectGrid from "../molecules/ProjectGrid";
 
@@ -57,7 +57,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <Flex as={"section"} justify={"center"} direction={"column"}>
+    <Box as={"section"} data-testid={"projects"}>
       <SectionTitle 
       text="Desarrollos y Proyectos"
       />
@@ -73,7 +73,6 @@ export default function Projects() {
         columns={{base: 1, md: 2, xl: 4}} 
         gap={"6"} 
         p={"2"}
-        transition="all 0.2s ease-in-out"
         >
           {misProyectos.map((proyecto) => (
           // Cajita de cada proyecto
@@ -91,6 +90,6 @@ export default function Projects() {
           ))}
         </SimpleGrid>
       )}
-    </Flex>
+    </Box>
   )
 }

@@ -5,7 +5,7 @@ import SectionBox from "../molecules/SectionBox";
 export default function Studies() {
 
     return (
-        <Box as={"section"}>
+        <Box as={"section"} data-testid={"studies"}>
             <SectionTitle 
             text="Formación Académica"
             />

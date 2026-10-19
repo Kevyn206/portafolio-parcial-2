@@ -28,10 +28,24 @@ export function useContactForm() {
         e.preventDefault();
         const nuevosErrores = {};
 
+        const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜñÑ\s]+$/;
+        const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
         // Validaciones
-        if (!formData.nombre.trim()) nuevosErrores.nombre = "El nombre es obligatorio";
-        if (!formData.email.includes("@")) nuevosErrores.email = "Ingresa un correo válido";
-        if (!formData.mensaje.trim()) nuevosErrores.mensaje = "El mensaje es obligatorio";
+        if (
+            !formData.nombre.trim() ||
+            formData.nombre.trim().length < 3 ||
+            !regexNombre.test(formData.nombre)
+        ) nuevosErrores.nombre = "El nombre no es válido o debe tener más de 3 caracteres";
+
+        if (
+            !formData.email.trim() ||
+            !regexCorreo.test(formData.email)
+        ) nuevosErrores.email = "Ingrese un correo válido";
+
+        if (
+            !formData.mensaje.trim()
+        ) nuevosErrores.mensaje = "El mensaje es obligatorio";
 
         // Setea los errores para que se pinte de rojo si hay algún error dentro del map
         setErrores(nuevosErrores);

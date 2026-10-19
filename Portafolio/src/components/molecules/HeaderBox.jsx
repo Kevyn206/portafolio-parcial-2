@@ -15,7 +15,7 @@ export default function HeaderBox() {
             as={"h1"}
             size={"4xl"}
             >
-                Portafolio Interactivo
+                Portafolio Personal
             </Heading>
         </Box>
     )

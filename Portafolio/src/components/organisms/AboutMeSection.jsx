@@ -7,7 +7,12 @@ export default function AboutMeSection() {
 
     return (
         // Flex ayuda a alinear el contenido para la presentación
-        <Flex direction={"column"} align={"center"} textAlign={"center"}>
+        <Flex 
+        data-testid={"about-me"}
+        direction={"column"} 
+        align={"center"} 
+        textAlign={"center"}
+        >
 
         <ProfilePhoto/>
         <AboutMeText/>
