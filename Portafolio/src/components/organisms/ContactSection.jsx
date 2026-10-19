@@ -1,5 +1,5 @@
 import { Box, Button, Heading, HStack, Text, VStack } from "@chakra-ui/react";
-import ContactForm from "./ContactForm";
+import ContactForm from "../molecules/ContactForm";
 
 export default function Contact() {
 

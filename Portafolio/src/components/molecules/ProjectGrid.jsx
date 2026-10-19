@@ -1,6 +1,6 @@
 import { Box, Button } from "@chakra-ui/react";
 import ProjectImage from "../atoms/ProjectImage";
-import ProjectText from "../molecules/ProjectText";
+import ProjectText from "./ProjectText";
 
 
 export default function ProjectBox({

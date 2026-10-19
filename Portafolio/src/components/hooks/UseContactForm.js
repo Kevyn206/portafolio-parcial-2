@@ -1,12 +1,14 @@
 import { useState } from "react"
 
+// Hook de validación completa del formulario
+
 export function useContactForm() {
 
     // Actualizar los datos de contacto dinamicamente 
     // (mientras uno se llena, no se borra el siguiente al validar)
     const [formData, setFormData] = useState({nombre: "", email: "", mensaje: ""});
 
-    // Actualiza los errores en cada apartado
+    // Setea los errores dinámicamente en cada apartado al subir el formulario
     const [errores, setErrores] = useState({});
 
     const handleChange = (event) => {
@@ -31,7 +33,7 @@ export function useContactForm() {
         if (!formData.email.includes("@")) nuevosErrores.email = "Ingresa un correo válido";
         if (!formData.mensaje.trim()) nuevosErrores.mensaje = "El mensaje es obligatorio";
 
-        // Setea los errores dinámicamente como un estado unificado
+        // Setea los errores para que se pinte de rojo si hay algún error dentro del map
         setErrores(nuevosErrores);
 
         // Usamos Object para buscar las keys del diccionario y convertirlo en array

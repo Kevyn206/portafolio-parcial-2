@@ -1,6 +1,6 @@
 import { Button, VStack } from "@chakra-ui/react";
 import { useContactForm } from "../hooks/UseContactForm";
-import TextField from "../molecules/TextField";
+import TextField from "./TextField";
 
 export default function FieldBox() {
 

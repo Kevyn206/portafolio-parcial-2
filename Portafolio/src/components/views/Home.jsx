@@ -9,10 +9,10 @@ import { Provider } from "../../components/ui/provider";
 import LogoChakra from "../../assets/LogoChakra.png";
 import HeaderBox from "../../components/molecules/HeaderBox";
 import AboutMeSection from "../../components/organisms/AboutMeSection";
-import WorkExperience from "../../components/organisms/WorkExperience";
-import Studies from "../../components/organisms/Studies";
-import Projects from "../../components/organisms/Projects";
-import Contact from "../../components/organisms/Contact";
+import WorkExperienceSection from "../organisms/WorkExperienceSection";
+import StudiesSection from "../organisms/StudiesSection";
+import ProjectsSection from "../organisms/ProjectsSection";
+import ContactSection from "../organisms/ContactSection";
 import FooterBox from "../../components/molecules/FooterBox";
 
 const añoActual = new Date().getFullYear();
@@ -38,22 +38,22 @@ export default function Home() {
                     <Separator/>
 
                     {/* EXPERIENCIA LABORAL */}
-                    <WorkExperience/>
+                    <WorkExperienceSection/>
 
                     <Separator/>
 
                     {/* ESTUDIOS */}
-                    <Studies/>
+                    <StudiesSection/>
 
                     <Separator/>
 
                     {/* PROYECTOS */}
-                    <Projects/>
+                    <ProjectsSection/>
 
                     <Separator/>
 
                     {/* CONTACTO */}
-                    <Contact/>
+                    <ContactSection/>
 
                 </VStack>
             </Container>

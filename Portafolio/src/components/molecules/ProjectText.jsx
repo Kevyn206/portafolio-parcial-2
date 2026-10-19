@@ -10,10 +10,12 @@ export default function ProjectText({
     return (
         <>
             <HStack justify={"space-between"} align={"center"} mb={"2"}>
+
                 <Heading size={"md"}>
                     {title}
                 </Heading>
                 <ProjectPill text={pillText}/>
+                
             </HStack>
             
             <Text fontSize={"sm"} color={"gray.600"} mb={"4"}>

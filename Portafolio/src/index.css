@@ -13,3 +13,18 @@ body,
   width: 100%;
   background-color: rgb(10, 10, 10);
 }
+
+@keyframes animacionProyectos {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.aparecer {
+  animation: animacionProyectos 0.4s ease-in-out;
+}
