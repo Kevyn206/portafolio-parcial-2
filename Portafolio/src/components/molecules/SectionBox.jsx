@@ -4,15 +4,16 @@ export default function SectionBox({
     bg = "gray.900",
     title,
     subtitle,
-    text,
-    boldText1,
-    boldText2,
+    text1,
+    text2,
+    boldText,
 }) {
     
     return(
         <Box 
         bg={bg}
         p={"4"} 
+        minW={"250px"}
         borderWidth={"1px"} 
         borderRadius={"md"}
         mx={"2"} 
@@ -26,16 +27,16 @@ export default function SectionBox({
                 {subtitle}
             </Text>
 
-            <Text fontSize={"sm"} my={"2"}>
-                {text}
+            <Text fontSize={"sm"} mt={"3"}>
+                {text1}
             </Text>
 
-            <Text fontSize={"sm"} fontWeight={"bold"}>
-                {boldText1}
+            <Text fontSize={"sm"}>
+                {text2}
             </Text>
             
-            <Text fontSize={"sm"} fontWeight={"bold"}>
-                {boldText2}
+            <Text fontSize={"sm"} fontWeight={"bold"} mt={"2"}>
+                {boldText}
             </Text>
             
         </Box>

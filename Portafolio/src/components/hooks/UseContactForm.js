@@ -11,6 +11,9 @@ export function useContactForm() {
     // Setea los errores dinámicamente en cada apartado al subir el formulario
     const [errores, setErrores] = useState({});
 
+    // Abre un Modal personalizado de Chakra UI para más coherencia entre los componentes
+    const [mostrarDialog, setMostrarDialog] = useState(false);
+
     const handleChange = (event) => {
 
         // ...formData => Los cambios que hay actualmente
@@ -52,7 +55,7 @@ export function useContactForm() {
 
         // Usamos Object para buscar las keys del diccionario y convertirlo en array
         if (Object.keys(nuevosErrores).length === 0) {
-            alert("¡Mensaje enviado con éxito!");
+            setMostrarDialog(true);
             setFormData({nombre: "", email: "", mensaje: ""});
         }
     };
@@ -61,6 +64,8 @@ export function useContactForm() {
         formData,
         errores,
         handleChange,
-        handleSubmit
+        handleSubmit,
+        mostrarDialog,
+        setMostrarDialog
     };
 }

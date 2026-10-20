@@ -5,6 +5,6 @@ export default function SectionTitle({
 }) {
     
     return (
-        <Heading size={"xl"} mb={"4"}>{text}</Heading>
+        <Heading size={"xl"} mb={"4"} textDecor={"underline"} ms={{base: "5", md: "10"}}>{text}</Heading>
     )
 }

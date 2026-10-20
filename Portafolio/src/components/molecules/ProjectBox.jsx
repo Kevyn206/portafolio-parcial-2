@@ -1,7 +1,6 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import ProjectImage from "../atoms/ProjectImage";
 import ProjectText from "./ProjectText";
-
 
 export default function ProjectBox({
     bg = "gray.900",
@@ -16,22 +15,29 @@ export default function ProjectBox({
 }) {
 
     return (
-        <Box
+        <Flex
+        h={"100%"}
+        direction={"column"}
         borderRadius={"xl"}
         borderWidth={"1px"}
         borderColor={"gray.700"}
         overflow={"hidden"}   // <= Redondea todo lo que se pegue al borde de la tarjeta 
         bg={bg}    // <= El mismo color del fondo
-        transition={"all 0.2s ease-in-out"}
-        _hover={{transform: "scale(1.01)"}}
+        // transition={"all 0.2s ease-in-out"}
+        // _hover={{transform: "scale(1.01)"}}
         >
             <ProjectImage
             src={imageSrc}
             alt={imageAlt}
             />
 
-            <Box p={"4"} borderTopWidth={"1px"} borderTopColor={"gray.300"}>
-
+            <Flex 
+            flex={"1"}
+            direction={"column"}
+            p={"4"} 
+            borderTopWidth={"1px"} 
+            borderTopColor={"gray.700"}
+            >
                 <ProjectText 
                 title={projectTitle}
                 pillText={projectTextPill}
@@ -40,6 +46,7 @@ export default function ProjectBox({
 
                 <Button
                 as={"a"}
+                mt={"auto"}
                 href={hrefRepository}
                 target={"_blank"}     // <= Crear otra página y redirigir al sitio
                 rel="noopener noreferrer"   // <= Seguridad para que no modifiquen la página desde el sitio redirigido
@@ -49,7 +56,7 @@ export default function ProjectBox({
                 >
                     {buttonText}
                 </Button>
-            </Box>
-        </Box>
+            </Flex>
+        </Flex>
     )
 }

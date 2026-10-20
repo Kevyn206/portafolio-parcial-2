@@ -23,6 +23,7 @@ export default function TextField({
             
             {isTextarea ? (
                 <Textarea
+                p={"2"}
                 name={name}
                 value={value}
                 onChange={onChange}
@@ -33,6 +34,7 @@ export default function TextField({
 
             ) : (
                 <Input
+                p={"2"}
                 type={type}
                 name={name}    // <== Campos que recibirá onChange
                 value={value}  // <== para insertar en el map de errores

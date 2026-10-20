@@ -1,8 +1,41 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex, Skeleton } from "@chakra-ui/react";
 import SectionTitle from "../atoms/SectionTitle";
 import SectionBox from "../molecules/SectionBox";
+import { useEffect, useState } from "react";
+
+const estudios = [
+    {
+        id: 1,
+        titulo: "Colegio Bicentenario Técnico Profesional “República Argentina”",
+        subtitulo: "Santiago, Región Metropolitana",
+        texto1: "Escolaridad: 1ro Medio",
+    },
+    {
+        id: 2,
+        titulo: "Liceo “Alberto Hurtado Cruchaga”",
+        subtitulo: "Padre Hurtado, Región Metropolitana",
+        texto1: "Escolaridad: de 2do a 4to Medio",
+        texto2: "Título obtenido: Licencia de Enseñanza Media",
+        negrita: "Fecha obtención: Diciembre 2024"
+    },
+    {
+        id: 3,
+        titulo: "Instituto Profesional “Duoc UC”",
+        subtitulo: "Maipú, Región Metropolitana",
+        texto1: "Título obtenido: Analista Programador",
+        negrita: "Fecha obtención: Agosto 2027"
+    }
+]
 
 export default function Studies() {
+
+    const [cargando, setCargando] = useState(true);
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setCargando(false);
+        }, 2000);
+    }, []);
 
     return (
         <Box as={"section"} data-testid={"studies"}>
@@ -10,24 +43,34 @@ export default function Studies() {
             text="Formación Académica"
             />
 
-            <SectionBox 
-            title="Colegio Bicentenario Técnico Profesional “República Argentina”"
-            subtitle="Santiago, Región Metropolitana"
-            boldText1="1ro Medio"
-            />
-
-            <SectionBox 
-            title="Liceo “Alberto Hurtado Cruchaga”"
-            subtitle="Padre Hurtado, Región Metropolitana"
-            boldText1="De 2do a 4to Medio"
-            boldText2="Título obtenido: Licencia de Enseñanza Media. Diciembre 2024"
-            />
-
-            <SectionBox 
-            title="Instituto Profesional “Duoc UC”"
-            subtitle="Maipú, Región Metropolitana"
-            boldText2="Título obtenido: Analista Programador. Agosto 2027"
-            />
+            {cargando ? (
+                <>
+                    {estudios.map((caja) => (
+                        <Box
+                        key={caja.id}
+                        borderWidth={"1px"}
+                        borderRadius={"md"}
+                        mx={"2"} 
+                        my={"4"}
+                        >
+                            <Skeleton height={"100px"}/>
+                        </Box>
+                    ))}
+                </>
+            ) : (
+                <Flex direction={{base: "column", lg: "row"}} columns={{base: 1, md: 2}}>
+                    {estudios.map((caja) => (
+                        <SectionBox 
+                        key={caja.id}
+                        title={caja.titulo}
+                        subtitle={caja.subtitulo}
+                        text1={caja.texto1}
+                        text2={caja.texto2}
+                        boldText={caja.negrita}
+                        />
+                    ))}
+                </Flex>
+            )}
         </Box>
     )
 }
