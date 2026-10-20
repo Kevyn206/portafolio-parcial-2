@@ -76,7 +76,7 @@ src/
 
 2. **Navegar al directorio del proyecto:**
    ```bash
-   cd "Portafolio"
+   cd portafolio-parcial-2
    ```
 
 3. **Instalar dependencias:**
