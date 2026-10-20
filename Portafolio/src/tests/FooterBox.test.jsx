@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithChakra } from "../utils/test-utils";
-import FooterBox from "./FooterBox";
+import { renderWithChakra } from "../components/utils/test-utils";
+import FooterBox from "../components/organisms/FooterBox";
 
 test("Debe renderizar la molécula Footer correctamente", () => {
     renderWithChakra(<FooterBox/>);

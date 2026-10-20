@@ -1,5 +1,5 @@
 import { Button, CloseButton, Dialog, Portal, Text, VStack } from "@chakra-ui/react";
-import { useContactForm } from "../hooks/UseContactForm";
+import { useContactForm } from "../../hooks/UseContactForm";
 import TextField from "./TextField";
 
 export default function FieldBox() {
@@ -27,7 +27,7 @@ export default function FieldBox() {
             value={formData.nombre}
             onChange={handleChange}
             placeholder={"Ej: Juan Perez"}
-            error={errores.nombre} // <= Errores irá como nombre: "mensaje de error"
+            error={errores.nombre} // <= Errores irá como {nombre: "mensaje de error"}
             />
 
             {/* CAMPO EMAIL */}

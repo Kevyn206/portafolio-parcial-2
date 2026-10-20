@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithChakra } from "../utils/test-utils";
-import ContactSection from "./ContactSection"
+import { renderWithChakra } from "../components/utils/test-utils";
+import ContactSection from "../components/organisms/ContactSection"
 
 test("Debe renderizar la sección de Contacto correctamente en el Home", () => {
     renderWithChakra(<ContactSection/>);

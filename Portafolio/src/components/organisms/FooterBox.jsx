@@ -1,6 +1,6 @@
 import { Box, Container, Flex } from "@chakra-ui/react";
-import FooterText from "./FooterText";
-import FooterImage from "./FooterImage";
+import FooterText from "../molecules/FooterText";
+import FooterImage from "../molecules/FooterImage";
 
 export default function FooterBox({
     leftText1,

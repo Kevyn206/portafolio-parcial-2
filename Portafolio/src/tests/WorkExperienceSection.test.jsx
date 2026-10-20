@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithChakra } from "../utils/test-utils";
-import WorkExperienceSection from "./WorkExperienceSection"
+import { renderWithChakra } from "../components/utils/test-utils";
+import WorkExperienceSection from "../components/organisms/WorkExperienceSection"
 
 test("Debe renderizar la sección de Experiencia Laboral correctamente en el Home", () => {
     renderWithChakra(<WorkExperienceSection/>);

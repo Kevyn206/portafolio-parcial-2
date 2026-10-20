@@ -1,4 +1,4 @@
-import { Box, Skeleton } from "@chakra-ui/react";
+import { Box, Flex, Skeleton } from "@chakra-ui/react";
 import SectionTitle from "../atoms/SectionTitle";
 import SectionBox from "../molecules/SectionBox";
 import { useEffect, useState } from "react";
@@ -35,9 +35,11 @@ export default function WorkExperience() {
             />
 
             {cargando ? (
-                <>
+                <Flex direction={{base: "column", lg: "row"}} wrap={"wrap"}>
                     {laboral.map((esqueleto) => (
                         <Box
+                        flex={"1"}
+                        minW={"250px"}
                         key={esqueleto.id}
                         borderWidth={"1px"}
                         borderRadius={"md"}
@@ -47,9 +49,9 @@ export default function WorkExperience() {
                             <Skeleton height={"100px"}/>
                         </Box>
                     ))}
-                </>
+                </Flex>
             ) : (
-                <>
+                <Flex direction={{base: "column", lg: "row"}} wrap={"wrap"}>
                     {laboral.map((caja) => (
                         <SectionBox 
                         key={caja.id}
@@ -58,7 +60,7 @@ export default function WorkExperience() {
                         text1={caja.texto1}
                         />
                     ))}
-                </>
+                </Flex>
             )}
         </Box>
     )

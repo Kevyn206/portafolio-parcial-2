@@ -13,11 +13,11 @@ export default function SectionBox({
         <Box 
         bg={bg}
         p={"4"} 
+        flex={"1"}
         minW={"250px"}
         borderWidth={"1px"} 
         borderRadius={"md"}
-        mx={"2"} 
-        my={"4"}
+        m={"2"} 
         >
             <Heading size={"md"}>
                 {title}

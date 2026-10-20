@@ -1,5 +1,5 @@
 import { Box, Carousel, HStack, IconButton, Spinner, Text, VStack } from "@chakra-ui/react";
-import { LuChevronLeft, LuChevronRight, LuMouse, LuMoveHorizontal, LuPause, LuPlay } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuMoveHorizontal, LuPause, LuPlay } from "react-icons/lu";
 
 import SectionTitle from "../atoms/SectionTitle";
 import PETs from "../../assets/PETs.png";
@@ -77,10 +77,9 @@ export default function Projects() {
         slideCount={proyectos.length}
         mx="auto"
         maxW="xl"
-        allowMouseDrag
         >
           <HStack textStyle={{base: "xs", md: "sm"}} mb="4">
-            <LuMouse/> <LuMoveHorizontal /> Desliza la pantalla o presiona los botones
+            <LuMoveHorizontal /> Desliza la pantalla o presiona los botones
           </HStack>
 
           {/* Loop de proyectos */}

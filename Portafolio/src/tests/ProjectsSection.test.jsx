@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithChakra } from "../utils/test-utils";
-import ProjectsSection from "./ProjectsSection"
+import { renderWithChakra } from "../components/utils/test-utils";
+import ProjectsSection from "../components/organisms/ProjectsSection"
 
 test("Debe renderizar la sección de Proyectos correctamente en el Home", () => {
     renderWithChakra(<ProjectsSection/>);

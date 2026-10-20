@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithChakra } from "../utils/test-utils";
-import AboutMeSection from "./AboutMeSection"
+import { renderWithChakra } from "../components/utils/test-utils";
+import AboutMeSection from "../components/organisms/AboutMeSection"
 
 test("Debe renderizar la sección Sobre Mí correctamente en el Home", () => {
     renderWithChakra(<AboutMeSection/>);

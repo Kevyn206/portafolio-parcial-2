@@ -44,9 +44,11 @@ export default function Studies() {
             />
 
             {cargando ? (
-                <>
+                <Flex direction={{base: "column", lg: "row"}} wrap={"wrap"}>
                     {estudios.map((caja) => (
                         <Box
+                        flex={"1"}
+                        minW={"250px"}
                         key={caja.id}
                         borderWidth={"1px"}
                         borderRadius={"md"}
@@ -56,9 +58,9 @@ export default function Studies() {
                             <Skeleton height={"100px"}/>
                         </Box>
                     ))}
-                </>
+                </Flex>
             ) : (
-                <Flex direction={{base: "column", lg: "row"}} columns={{base: 1, md: 2}}>
+                <Flex direction={{base: "column", lg: "row"}} wrap={"wrap"}>
                     {estudios.map((caja) => (
                         <SectionBox 
                         key={caja.id}

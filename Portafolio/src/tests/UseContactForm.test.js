@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import { useContactForm } from "./UseContactForm";
+import { useContactForm } from "../hooks/UseContactForm";
 
 describe("testeo del hook de validación de formulario 'useContactForm'", () => {
     test("El map dinámico formData debe empezar sin datos", () => {
